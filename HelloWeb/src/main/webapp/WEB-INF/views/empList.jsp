@@ -11,8 +11,12 @@
 //	EmpDAO dao = new EmpDAO();//최대한 control에서 다 처리하기
 //	List<Employee> list = dao.getEmpList();
 	List<Employee> list = (List<Employee>)request.getAttribute("listInfo");
+	String fname = (String)request.getAttribute("reqInfo");
+	String lname = (String)session.getAttribute("sesInfo");
 	%>
-	<table border= "1">
+	<p>Request: <%=fname %></p>
+	<p>Session: <%=lname %></p>
+	<table border= "1" >
 		<thead>
 		<tr><th>사원번호</th><th>이름</th><th>성</th><th>이메일</th><th>전화번호</th></tr>
 		</thead>

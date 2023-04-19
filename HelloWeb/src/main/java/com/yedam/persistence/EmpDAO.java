@@ -157,4 +157,31 @@ public class EmpDAO {
 		}
 		return false;
 	}
+	//로그인 (사원번호,이메일)
+	public Employee loginCheck(Employee emp) {
+		conn = DAO.getConnect();
+		String sql = "SELECT *FROM employees WHERE employee_id=? AND email=? ";
+		try {
+			psmt =conn.prepareStatement(sql);
+			psmt.setInt(1, emp.getEmployeeId());
+			psmt.setString(2, emp.getEmail());
+			rs= psmt.executeQuery();
+			if(rs.next()) {
+				Employee result = new Employee();
+				result.setEmployeeId(rs.getInt("employee_id"));
+				result.setFirstName(rs.getString("first_name"));
+				result.setLastName(rs.getString("last_name"));
+				result.setEmail(rs.getString("email"));
+				result.setJobId(rs.getString("job_id"));
+				result.setPhone(rs.getString("phone_number"));
+				result.setHiredate(rs.getString("hire_date"));
+				return result;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return null;
+	}
 }

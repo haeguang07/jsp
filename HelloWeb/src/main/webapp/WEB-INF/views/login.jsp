@@ -128,14 +128,14 @@ span.psw {
 </style>
 </head>
 <body>
-
+<!-- 
 <h2>Modal Login Form</h2>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-<div id="id01" class="modal">
+ -->
+<!--  <div id="id01" class="modal">-->
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="login.do" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="imgs/img_avatar2.png" alt="Avatar" class="avatar">
@@ -143,7 +143,7 @@ span.psw {
 
     <div class="container">
       <label for="uname"><b>사번</b></label>
-      <input type="text" placeholder="Enter empId" name="empId" required>
+      <input type="text" placeholder="Enter empId" name="emp_id" required>
 
       <label for="psw"><b>이메일</b></label>
       <input type="password" placeholder="Enter email" name="email" required>
@@ -158,8 +158,8 @@ span.psw {
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
-  </form>
-</div>
+ </form>
+ <!-- </div>-->
 
 <script>
 // Get the modal
@@ -171,12 +171,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-let btn=document.querySelector('button[type="sumit"]')
-btn.onclick = function(){
-	let frm=document.querySelector('form');
-	frm.action= "login.do";
-	frm.submit();
-}
+
 </script>
 
 </body>

@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="menu.jsp"></jsp:include>
 <jsp:include page="nav.jsp"></jsp:include>
-
+	<% 
+	String lname = (String)session.getAttribute("sesInfo");
+	%>
+	<p>Session: <%=lname %></p>
 	<form action="addMember.do">
 	<fieldset>
 		<legend>사원 추가</legend>
