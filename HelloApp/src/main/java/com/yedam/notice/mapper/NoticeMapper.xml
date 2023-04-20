@@ -22,16 +22,16 @@
 	</insert>
 	<!-- 공지사항 관련 -->
 	<select id="noticeList" resultType="notice">
-		select * from tbl_notice order by 1
+		select * from tbl_notice order by 1 DESC
 	</select>
 	<insert id="insertNotice" parameterType="notice">
-		INSERT INTO tbl_notice (notice_id, notice_writer,
-		notice_title,notice_subject)
-		VALUES(NOTICE_SEQ.nextval,#{noticeWriter},#{noticeTitle},#{noticeSubject})
+		INSERT INTO tbl_notice (notice_id, notice_writer,notice_title,notice_subject,attach_file)
+		VALUES(NOTICE_SEQ.nextval,#{noticeWriter},#{noticeTitle},#{noticeSubject} , #{attachFile})
 	</insert>
 	<update id="updateNotice" parameterType="notice">
 		update tbl_notice
 		set notice_title =#{noticeTitle}, notice_subject=#{noticeSubject}
+		
 		where notice_id= ${noticeId}
 	</update>
 	<delete id="deleteNotice" parameterType="int">
@@ -41,7 +41,11 @@
 		resultType="notice">
 		select * from tbl_notice where notice_id = #{noticeId}
 	</select>
-
+	<update id="updateCount" parameterType="int">
+		update tbl_notice
+		set hit_count = hit_count+1
+		where notice_id= ${noticeId}
+	</update>
 
 
 </mapper>
