@@ -21,4 +21,8 @@ public interface NoticeMapper {
 	public NoticeVO searchNotice(int noticeId);
 	//조회수 증가
 	public int updateCount(int noticeId);
+	//공지사항 페이지징
+	public List<NoticeVO> noticeWithPage(int page);
+	//공지사항 총갯수
+	public int getCount();
 }

@@ -15,7 +15,7 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><input type="text" name="writer">
+			<td><input type="text" name="writer" value="${name}" readonly>
 			<td>
 		</tr>
 		<tr>

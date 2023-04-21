@@ -43,14 +43,24 @@
 			
 			</td>
 		</tr>
-		
 		<tr><th>작성일</th>
 		<td>${noticeInfo.noticeDate }</td></tr>
 		<tr>
 			<td colspan="2" align="center">
-				<button type="submit">수정</button>
-				<button type="button" onclick="location.href='noticeList.do'">목록</button>
+			<c:choose>
+				<c:when test="${memberInfo.name== noticeInfo.noticeWriter}">
+				<button type="submit" >수정</button>
+				</c:when>
+				<c:otherwise>
+				<button disabled="disabled" type="submit" >수정</button>
+				</c:otherwise>
+			</c:choose>
+				<button type="button" onclick="location.href='noticeList.do?page=${pageNum}'"> 목록 ${pageNum}</button>
 			</td>
 		</tr>
 	</table>
+	
 </form>
+
+
+

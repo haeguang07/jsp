@@ -15,8 +15,9 @@ public class NoticeServieImpl implements NoticeService{
 	
 	
 	@Override
-	public List<NoticeVO> noticeList() {
-		return mapper.noticeList();
+	public List<NoticeVO> noticeList(int page) {
+		//return mapper.noticeList();
+		return mapper.noticeWithPage(page);
 	}
 
 	@Override
@@ -37,6 +38,11 @@ public class NoticeServieImpl implements NoticeService{
 		//조회시 조회수 증가
 		mapper.updateCount(NoticeId);
 		return mapper.searchNotice(NoticeId);
+	}
+
+	@Override
+	public int totalCount() {
+		return  mapper.getCount();
 	}
 	
 }

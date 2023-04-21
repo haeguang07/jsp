@@ -24,6 +24,19 @@
 	<select id="noticeList" resultType="notice">
 		select * from tbl_notice order by 1 DESC
 	</select>
+	<select id="noticeWithPage" resultType="notice">
+	<![CDATA[
+		Select rownum rn, b.*
+		FROM    (SELECT rownum rn, a.* 
+	        	 FROM (SELECT * FROM tbl_notice
+	             	   ORDER BY 1 DESC) a 
+	    		 WHERE rownum <= #{page}*10) b
+		WHERE b.rn > (#{page}-1)*10	
+	]]>
+	</select>
+	<select id="getCount" resultType="int">
+		select count(*) from tbl_notice
+	</select>
 	<insert id="insertNotice" parameterType="notice">
 		INSERT INTO tbl_notice (notice_id, notice_writer,notice_title,notice_subject,attach_file)
 		VALUES(NOTICE_SEQ.nextval,#{noticeWriter},#{noticeTitle},#{noticeSubject} , #{attachFile})
@@ -46,6 +59,5 @@
 		set hit_count = hit_count+1
 		where notice_id= ${noticeId}
 	</update>
-
 
 </mapper>

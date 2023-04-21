@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.member.control.LoginFormContorl;
+import com.yedam.member.control.loginContorl;
+import com.yedam.member.control.logoutContorl;
+import com.yedam.member.control.modifyMemberControl;
+import com.yedam.member.control.modifyMemberFromControl;
 import com.yedam.notice.contorl.*;
 
 
@@ -37,6 +42,17 @@ public class FrontController extends HttpServlet {
 		//공지사항 수정하기 화면
 		//수정하기 기능
 		map.put("/modifyNotice.do", new ModifyNoticeControl());
+		//회원관련
+		//로그인 회면
+		map.put("/loginForm.do", new LoginFormContorl());
+		//로그인 기능
+		map.put("/login.do", new loginContorl());
+		//로그아웃 기능
+		map.put("/logout.do", new logoutContorl());
+		//회원수정화면
+		map.put("/modifyMemberForm.do", new modifyMemberFromControl());
+		// 회원수정 기능
+		map.put("/modifyMember.do", new modifyMemberControl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
