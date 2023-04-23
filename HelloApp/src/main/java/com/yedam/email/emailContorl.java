@@ -38,7 +38,7 @@ public class emailContorl implements Control {
 			    String toEmail = req.getParameter("email") ; // 콤마(,)로 여러개 나열
 			    
 			    final String username = "hk97564";         
-			    final String password = "khmxnvtbonirdiaq";
+			    final String password = "앱 비밀번호";
 			    
 			    // 메일에 출력할 텍스트
 			    int random = (int)(Math.random()*100000)+1;
