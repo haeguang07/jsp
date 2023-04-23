@@ -19,6 +19,6 @@
 	<fmt:formatDate var="year" value="${now}" pattern="yyyy"/>
 	<p>올해는 : ${year }년입니다</p>
 	<p>작년은 : ${year-1 }년입니다</p>
-	
+	<a href="emailForm.do">이메일 보내기</a>
 </body>
 </html>

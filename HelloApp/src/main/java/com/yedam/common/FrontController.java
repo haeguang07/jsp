@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.email.checkContorl;
+import com.yedam.email.emailContorl;
+import com.yedam.email.emailFormContorl;
 import com.yedam.member.control.LoginFormContorl;
 import com.yedam.member.control.loginContorl;
 import com.yedam.member.control.logoutContorl;
@@ -53,6 +56,10 @@ public class FrontController extends HttpServlet {
 		map.put("/modifyMemberForm.do", new modifyMemberFromControl());
 		// 회원수정 기능
 		map.put("/modifyMember.do", new modifyMemberControl());
+		//이메일 전송
+		map.put("/emailForm.do", new emailFormContorl());
+		map.put("/email.do", new emailContorl());
+		map.put("/check.do", new checkContorl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
