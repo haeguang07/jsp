@@ -16,6 +16,6 @@
 <input style="display: disable" name="random" value="${random}">
 </c:if>
 
-<button type="submit" >인증</button>
+<button type="button" onclick="${(random=decument.quaryselector(input[name=certification]).innertext) ? 'check.do':alert('인증실패)'}" >인증</button>
 </fieldset>
 </form>

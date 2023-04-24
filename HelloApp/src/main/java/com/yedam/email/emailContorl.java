@@ -20,6 +20,7 @@ import javax.mail.internet.MimeMultipart;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.yedam.common.Control;
 
@@ -43,7 +44,8 @@ public class emailContorl implements Control {
 			    // 메일에 출력할 텍스트
 			    int random = (int)(Math.random()*100000)+1;
 			    req.setAttribute("email", req.getParameter("email"));
-			    req.setAttribute("random", random);
+			    HttpSession session1 = req.getSession();
+				session1.setAttribute("random", random);
 			    StringBuffer sb = new StringBuffer();
 			    sb.append("<h3>안녕하세요</h3>\n");
 			    sb.append("<h4>인증번호는"+ random+"입니다 .</h4>\n");    

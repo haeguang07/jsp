@@ -7,7 +7,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.yedam.common.DataSource;
 import com.yedam.notice.domain.NoticeVO;
+import com.yedam.notice.domain.ReplyVO;
 import com.yedam.notice.mapper.NoticeMapper;
+import com.yedam.notice.service.ReplyService;
+import com.yedam.notice.service.ReplyServiceImpl;
 
 
 public class SampleExe3 {
@@ -23,8 +26,16 @@ public class SampleExe3 {
 			}
 			
 		
-		
 		}
+		ReplyService service = new ReplyServiceImpl();
+		List<ReplyVO> list = service.getReplies(100);
+		for(ReplyVO vo : list) {
+			System.out.println(vo);
+		}
+		
+		
+		
+		
 	}
 	
 	

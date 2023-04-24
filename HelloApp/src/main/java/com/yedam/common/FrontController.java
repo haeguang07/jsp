@@ -60,6 +60,13 @@ public class FrontController extends HttpServlet {
 		map.put("/emailForm.do", new emailFormContorl());
 		map.put("/email.do", new emailContorl());
 		map.put("/check.do", new checkContorl());
+		
+		//댓글 정보
+		map.put("/replyList.do", new ReplyListContorl());
+		//댓글 추가
+		map.put("/addReply.do", new AddReplyContorl());
+		//댓글 삭제
+		map.put("/removeReply.do", new removeReplyContorl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -74,6 +81,12 @@ public class FrontController extends HttpServlet {
 		System.out.println(viewPage);
 		if(viewPage.endsWith(".do")) {
 			resp.sendRedirect(viewPage);
+			return;
+		}
+		if(viewPage.endsWith(".json")) {
+			resp.setContentType("text/json;charset=UTF-8");
+			resp.getWriter().print(viewPage.substring(0,viewPage.length()-5));
+			
 			return;
 		}
 		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
