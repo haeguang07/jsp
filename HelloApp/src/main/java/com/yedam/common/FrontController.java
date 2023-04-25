@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.chart.chartControl;
+import com.yedam.chart.chartDataControl;
 import com.yedam.email.checkContorl;
 import com.yedam.email.emailContorl;
 import com.yedam.email.emailFormContorl;
@@ -67,6 +69,11 @@ public class FrontController extends HttpServlet {
 		map.put("/addReply.do", new AddReplyContorl());
 		//댓글 삭제
 		map.put("/removeReply.do", new removeReplyContorl());
+		//댓글 수정
+		map.put("/modifyReply.do", new modifyReplyContorl());
+		//차트생성
+		map.put("/chart.do", new chartControl());
+		map.put("/chartData.do", new chartDataControl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

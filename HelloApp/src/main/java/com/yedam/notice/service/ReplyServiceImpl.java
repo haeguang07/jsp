@@ -13,7 +13,7 @@ public class ReplyServiceImpl implements ReplyService {
 	ReplyMapper mapper = session.getMapper(ReplyMapper.class);
 	@Override
 	public List<ReplyVO> getReplies(int noticeId) {
-		// TODO Auto-generated method stub
+		
 		return mapper.replyList(noticeId);
 	}
 	@Override
@@ -23,8 +23,23 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 	@Override
 	public boolean removeReply(int replyId) {
-		// TODO Auto-generated method stub
+		
 		return mapper.deleteReply(replyId)==1;
+	}
+	@Override
+	public boolean modifyReply(int replyId, String reply) {
+		
+		return mapper.updateReply(replyId, reply)==1;
+	}
+	@Override
+	public boolean modifyReply(ReplyVO vo) {
+		
+		return mapper.updateReply(vo)==1;
+	}
+	@Override
+	public ReplyVO getReply(int replyId) {
+		
+		return mapper.getreply(replyId);
 	}
 	
 

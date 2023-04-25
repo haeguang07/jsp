@@ -2,6 +2,8 @@ package com.yedam.notice.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yedam.notice.domain.ReplyVO;
 
 public interface ReplyMapper {
@@ -10,5 +12,7 @@ public interface ReplyMapper {
 	public int insertReply(ReplyVO vo);
 	//댓글 삭제
 	public int deleteReply(int replyId);
-	
+	public int updateReply(@Param("replyId") int replyId,@Param("reply") String reply);
+	public int updateReply(ReplyVO vo);
+	public ReplyVO getreply(int replyId);
 }
