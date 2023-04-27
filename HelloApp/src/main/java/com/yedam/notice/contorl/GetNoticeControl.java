@@ -28,7 +28,7 @@ public class GetNoticeControl implements Control {
 		if(vo.getAttachFile()!=null) {
 			String imgPath = req.getServletContext().getRealPath("images");
 			Path file =Paths.get(imgPath+"/"+ vo.getAttachFile());
-			System.out.println(Files.probeContentType(file));
+			System.out.println(imgPath);
 			String filetype= Files.probeContentType(file);
 			req.setAttribute("fileType", filetype.substring(0, filetype.indexOf("/")));
 		}

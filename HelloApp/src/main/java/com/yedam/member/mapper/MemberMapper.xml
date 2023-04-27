@@ -17,4 +17,5 @@
 		ON(e.department_id=d.department_id)
 		GROUP BY department_name
 	</select>
+	
 </mapper>

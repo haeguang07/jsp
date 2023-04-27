@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.chart.EventListContorl;
+import com.yedam.chart.FullCalendarContorl;
+import com.yedam.chart.addEventContorl;
 import com.yedam.chart.chartControl;
 import com.yedam.chart.chartDataControl;
+import com.yedam.chart.removeEventContorl;
 import com.yedam.email.checkContorl;
 import com.yedam.email.emailContorl;
 import com.yedam.email.emailFormContorl;
@@ -74,6 +78,11 @@ public class FrontController extends HttpServlet {
 		//차트생성
 		map.put("/chart.do", new chartControl());
 		map.put("/chartData.do", new chartDataControl());
+		//fullcalendar
+		map.put("/fullCalendar.do", new FullCalendarContorl());
+		map.put("/eventList.do", new EventListContorl());
+		map.put("/addEvent.do", new addEventContorl());
+		map.put("/removeEvent.do", new removeEventContorl());
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
