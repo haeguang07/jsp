@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.yedam.prod.control.ProdUploadcontrol;
+import com.yedam.prod.control.prodAddContorl;
 import com.yedam.prod.control.productListFormControl;
 import com.yedam.prod.control.productMainFormControl;
 
@@ -32,7 +33,10 @@ public class FrontController extends HttpServlet{
 		
 		
 		map.put("/productMainForm.do",new productMainFormControl() );
-		
+		//ckeditor 관련
+		map.put("/prodAdd.do", new prodAddContorl());
+		//ckeditor에서  처리
+		map.put("/prodUpload.do", new ProdUploadcontrol());
 		
 		
 		
